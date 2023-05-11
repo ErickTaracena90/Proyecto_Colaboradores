@@ -1,0 +1,84 @@
+create procedure [dbo].[sp_guardar](
+@nombres varchar(100),
+@apellidos varchar(100),
+@fnacimiento varchar(100),
+@ecivil varchar(100),
+@gradoa varchar(100),
+@direccion varchar(100)
+)
+as
+begin
+INSERT INTO [dbo].[Colaborador]
+           ([nombres]
+           ,[apellidos]
+           ,[fecha_nacimiento]
+           ,[estado_civil]
+           ,[grado_academico]
+           ,[direccion])
+     VALUES
+           (@nombres,
+            @apellidos,
+            @fnacimiento,
+            @ecivil,
+            @gradoa,
+            @direccion) 
+end
+
+
+
+create procedure [dbo].[sp_eliminar](
+@idcolaborador int
+
+)
+as
+begin
+delete from Colaborador
+where 
+id = @idcolaborador 
+end
+
+
+
+
+
+
+create procedure [dbo].[sp_obtener](
+@idcolaborador int
+)
+as
+begin
+select * from Colaborador where id = @idcolaborador
+end
+
+
+
+
+create procedure [dbo].[sp_listar]
+as
+begin
+select * from Colaborador
+end
+
+create procedure [dbo].[sp_editar](
+@idcolaborador int,
+@nombres varchar(100),
+@apellidos varchar(100),
+@fnacimiento varchar(100),
+@ecivil varchar(100),
+@gradoa varchar(100),
+@direccion varchar(100)
+)
+as
+begin
+update Colaborador 
+set 
+nombres = @nombres, 
+apellidos = @apellidos, 
+fecha_nacimiento = @fnacimiento
+estado_civil = @ecivil
+grado_academico = @gradoa
+direccion = @direccion
+
+where 
+id = @idcolaborador 
+end

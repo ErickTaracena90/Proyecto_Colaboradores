@@ -1,0 +1,55 @@
+﻿@model ColaboradorModel
+@{
+    ViewData["Title"] = "Guardar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card">
+
+    <div class="card-header">
+        Crear Colaborador
+        </div>
+
+    <div class="card-body">
+        <form asp-action="Guardar" asp-controller="Mantenedor" method="post">
+            <div class="mb-3">
+                <label class="form-label">Nombres</label>
+                <input asp-for="nombres" type="text" class="form-control">
+                <span asp-validation-for="nombres" class="text-danger"> </span>
+
+            </div>
+            <div class="mb-3">
+                <label f class="form-label">Apellidos</label>
+                <input asp-for="apellidos" type="text" class="form-control">
+                <span asp-validation-for="apellidos" class="text-danger"> </span>
+            </div>
+            <div class="mb-3">
+                <label f class="form-label">Fecha Nacimiento</label>
+                <input asp-for="fecha_nacimiento" type="date" class="form-control">
+                <span asp-validation-for="fecha_nacimiento" class="text-danger"> </span>
+            </div>
+            <div class="mb-3">
+                <label f class="form-label">Estado Civil</label>
+                <input asp-for="estado_civil" type="text" class="form-control">
+                <span asp-validation-for="estado_civil" class="text-danger"> </span>
+            </div>
+             <div class="mb-3">
+                <label f class="form-label">Grado Academico</label>
+                <input asp-for="grado_academico" type="text" class="form-control">
+                <span asp-validation-for="grado_academico" class="text-danger"> </span>
+            </div>
+            <div class="mb-3">
+                <label f class="form-label">Direccion</label>
+                <input asp-for="direccion" type="text" class="form-control">
+                <span asp-validation-for="direccion" class="text-danger"> </span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="Listar" asp-controller="Mantenedor" class="btn btn-warning">Volver a la lista</a>
+        </form>
+
+
+
+    </div>
+</div>
